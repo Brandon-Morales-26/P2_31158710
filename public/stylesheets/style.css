@@ -6,17 +6,19 @@
 }
 
 .Yo{
-  padding: 70px 0px 100px 100px;
- height: 20px;
+  padding: 120px 100px 100px;
+ height: 190px;
  margin: auto;
  text-align: center;
+ overflow: hidden;
 }
 
 
 .Centro{
 
-  padding: 110px 100px 100px 100px;
+  padding: 30px 80px 100px 100px;
   text-align: center ;
+  height: 2;
   overflow:hidden;
 
   
@@ -24,38 +26,40 @@
 }
 
 body {
-    background-color: #7b858398;
+  background-color: #7b858398;
 }
 
- fieldset{
+fieldset{
    background-color: #878d83e3;
    margin-bottom: 10px;
    border: 6px groove;
    border-color: #6c726d;
    border-radius: 10%;
- }
+}
 
- legend{
-padding: 5px;
-border-radius: 15px;
-font-weight: 20px;
+legend{
+ padding: 5px;
+ border-radius: 15px;
+ font-weight: 20px;
  }
  
- img{
+img{
   border-radius: 50%;
   margin-bottom: 12px;
   float: left;
-
  }
-
 p{
   font-size: 24x;
   font-family:"Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"; 
-  
-
 }
 
 li , ul {
   font-size: 24x;
    font-family:"Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;" ;
+}
+
+.Todo{
+  
+ min-width: 10px;
+
 }
