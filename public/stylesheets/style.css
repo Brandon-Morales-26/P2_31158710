@@ -7,11 +7,12 @@
 
 .Yo{
   padding: 120px 100px 80px 100px;
- height: 190px;
+ 
  margin: auto;
  text-align: center;
  overflow: hidden;
  height: auto;
+ width: auto;
 }
 
 
@@ -21,6 +22,8 @@
   text-align: center ;
   height: 2;
   overflow:hidden;
+  height: auto;
+  width: auto;
 
   
 
