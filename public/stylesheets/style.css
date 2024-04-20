@@ -6,17 +6,18 @@
 }
 
 .Yo{
-  padding: 120px 100px 100px;
+  padding: 120px 100px 80px 100px;
  height: 190px;
  margin: auto;
  text-align: center;
  overflow: hidden;
+ height: auto;
 }
 
 
 .Centro{
 
-  padding: 30px 80px 100px 100px;
+  padding: 0px 80px 100px 100px;
   text-align: center ;
   height: 2;
   overflow:hidden;
@@ -44,7 +45,7 @@ legend{
  }
  
 img{
-  border-radius: 50%;
+  border-radius: 30%;
   margin-bottom: 12px;
   float: left;
  }
