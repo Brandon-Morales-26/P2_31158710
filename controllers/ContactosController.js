@@ -17,7 +17,7 @@ class ContactosController {
     }
 
     // Guardar los datos del formulario
-    const ip = ip.address();
+    const ip = req.ip;
     const fecha = new Date().toISOString();
 
    
