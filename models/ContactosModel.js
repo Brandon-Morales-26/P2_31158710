@@ -12,7 +12,7 @@ class ContactosModel {
       console.log("Conectado a la base de datos SQLite.");
     });
 
-    this.db.run(
+   this.db.run(
       "CREATE TABLE IF NOT EXISTS contactos (email TEXT, nombre TEXT, mensaje TEXT, ip TEXT, fecha TEXT, id INTEGER PRIMARY KEY AUTOINCREMENT)",
       (err) => {
         if (err) {
@@ -20,6 +20,8 @@ class ContactosModel {
         }
       }
     );
+  
+
   }
 
   crearContacto(email, nombre, mensaje, ip, fecha) {
