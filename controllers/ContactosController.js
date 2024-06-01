@@ -1,6 +1,29 @@
 const ContactosModel = require("../models/ContactosModel");
 
 class ContactosController {
+
+  async obtenerIp() {
+    try {
+      const response = await fetch(`https://api.ipify.org?format=json`);
+      const data = await response.json();
+      return data.ip;
+    } catch (error) {
+      console.error(`Error al obtener la ip:` , error);
+      return null;
+    }
+  }
+  
+  async obtenerPais(ip) {
+    try {
+      const response = await fetch(`https://api.ipify.io/`+ip+`token=f22a0daa5f056d`);
+      const data = await response.json();
+      return data.country;
+    } catch (error) {
+      console.error(`Error al obtener el pais:` , error);
+      return null;
+    }
+  }
+
   constructor() {
     this.contactosModel = new ContactosModel();
     this.add = this.add.bind(this);
@@ -17,11 +40,12 @@ class ContactosController {
     }
 
     // Guardar los datos del formulario
-    const ip = req.ip;
+    const ip = await this.obtenerIp();
     const fecha = new Date().toISOString();
+    const pais = await this.obtenerPais(ip);
 
    
-    await this.contactosModel.crearContacto(email, name, mensaje, ip, fecha);
+    await this.contactosModel.crearContacto(email, name, mensaje, ip, fecha, pais);
 
     const contactos = await this.contactosModel.obtenerAllContactos();
 
@@ -38,4 +62,7 @@ class ContactosController {
   }
 }
 
+
+
 module.exports = ContactosController;
+
