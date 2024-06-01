@@ -1,7 +1,7 @@
 <div class="contacto">
   <fieldset>
     <legend style="font-family:Georgia, 'Times New Roman', Times, serif ;"><h2>Formulario de Contacto</h2></legend>
-  <form action="/form-contacto" method="post">
+  <form action="/form-contacto" method="post" onsubmit="return submitUserForm();">
    <input type="email" name="email" id="email" placeholder="Coloque correo electronico"/>    
    <input type="text" name="name" id="name" placeholder="Ingrese su Nombre" required/>
    <textarea
@@ -12,9 +12,35 @@
     rows="10"
     placeholder="Coloque su Comentario"
     ></textarea>
+
+    <div class="g-recaptcha" data-sitekey="6Ldo2-0pAAAAAMm6EoIZnUQs6RGUV5z8fzQFU4ct" data-callback="verifyCaptcha"></div>
+    <div id="g-recaptcha-error"></div>
+
+
     <input type="submit" value="Enviar"/>
+
   </form>
 </div>
+
+<script src='//www.google.com/recaptcha/api.js'></script>
+
+<script>
+  var recaptcha_response = '';
+  function submitUserForm() {
+      if(recaptcha_response.length == 0) {
+          document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">This field is required.</span>';
+          return false;
+      }
+      return true;
+  }
+  
+  function verifyCaptcha(token) {
+      recaptcha_response = token;
+      document.getElementById('g-recaptcha-error').innerHTML = '';
+  }
+  </script>
+
+
 <script>
   document.getElementById('submit-btn').addEventListener('click', async () => {
     const form = document.getElementById('contacto-form');
@@ -30,5 +56,6 @@
     } else {
       console.error('Error al enviar el formulario');
     }
-  });
+  })
   </script>
+  
