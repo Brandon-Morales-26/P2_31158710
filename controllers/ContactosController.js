@@ -1,4 +1,6 @@
+require(`dotenv`).config()
 const ContactosModel = require("../models/ContactosModel");
+const nodemailer = require("nodemailer");
 
 class ContactosController {
 
@@ -22,6 +24,37 @@ class ContactosController {
       console.error(`Error al obtener el pais:` , error);
       return null;
     }
+  }
+
+  async add(req, res){
+
+    let transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 465, // Use port 465 for SSL
+      secure: true, // Set to true for SSL
+      auth: {
+        user: process.env.User,
+        pass: process.env.User_Contraseña,
+      },
+    });
+
+    const sendTemplate = {
+      from: "process.env.User", //correo de ejemplo
+      to: "brandonjmm11@gmail.com",
+      subject: "Nuevo lead en web",
+      text: `Nombre: ${req.body.name} 
+      | Email: ${req.body.email} | Date: ${new Date()}
+      | mensaje: ${req.body.mensaje}`,
+    };
+
+    transporter.sendMail(sendTemplate, (error, info) => {
+      if (error) {
+        console.error("Error sending email:", error);
+      } else {
+        console.log("Email sent successfully:", info.response);
+      }
+    });
+
   }
 
   constructor() {
