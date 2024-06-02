@@ -26,25 +26,26 @@ class ContactosController {
     }
   }
 
-  async add(req, res){
-    function sendMail(req, email, gerolocalization)
+  async add(req, res) {
+    
     let transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 465, // Use port 465 for SSL
       secure: true, // Set to true for SSL
       auth: {
-        user: process.env.User,
-        pass: process.env.User_Contraseña,
+        user: process.env.USER,
+        pass: process.env.USERPASSWORD,
       },
     });
 
     const sendTemplate = {
       from: "process.env.User", //correo de ejemplo
       to: "brandonjmm11@gmail.com",
-      subject: "Nuevo lead en web",
+      subject: "Probando",
       text: `Nombre: ${req.body.name} 
-      | Email: ${req.body.email} | Date: ${new Date()}
-      | mensaje: ${req.body.mensaje}`,
+      | Email: ${req.body.email} | mensaje: ${req.body.mensaje}
+      | Date: ${new Date()}`
+      
     };
 
     transporter.sendMail(sendTemplate, (error, info) => {
@@ -56,6 +57,7 @@ class ContactosController {
     });
 
   }
+
 
   constructor() {
     this.contactosModel = new ContactosModel();
