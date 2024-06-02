@@ -27,7 +27,7 @@ class ContactosController {
   }
 
   async add(req, res){
-
+    function sendMail(req, email, gerolocalization)
     let transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 465, // Use port 465 for SSL
