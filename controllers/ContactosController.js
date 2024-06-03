@@ -32,13 +32,13 @@ class ContactosController {
       port: 465, // Use port 465 for SSL
       secure: true, // Set to true for SSL
       auth: {
-        user: process.env.USER,
-        pass: process.env.USERPASSWORD,
+        user: process.env.EMAIL,
+        pass: process.env.EMAIL_PASSWORD,
       },
     });
 
     const sendTemplate = {
-      from: process.env.USER, //correo de ejemplo
+      from: process.env.EMAIL, //correo de ejemplo
       to: [process.env.EMAILRECP1],
       subject: "Probando  el envio",
       text: `Nombre: ${req.body.name} 
