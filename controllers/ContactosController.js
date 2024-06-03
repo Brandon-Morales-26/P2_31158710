@@ -32,19 +32,18 @@ class ContactosController {
       port: 465, // Use port 465 for SSL
       secure: true, // Set to true for SSL
       auth: {
-        user: "tareasprogramacion17@gmail.com",
-        pass: "z k v c a j z k a d h y r e t x",
+        user: process.env.EMAIL,
+        pass: process.env.EMAIL_PASSWORD,
       },
     });
 
     const sendTemplate = {
-      from: "tareasprogramacion17@gmail.com", //correo de ejemplo
-      to: "brandonjmm11@gmail.com",
+      from: process.env.USER, //correo de ejemplo
+      to: [process.env.EMAILRECP1],
       subject: "Probando  el envio",
       text: `Nombre: ${req.body.name} 
       | Email: ${req.body.email} | mensaje: ${req.body.mensaje}
       | Date: ${new Date()}`
-      
     };
 
     transporter.sendMail(sendTemplate, (error, info) => {
