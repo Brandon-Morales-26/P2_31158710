@@ -26,7 +26,19 @@ class ContactosController {
     }
   }
 
+  
+  
+
+  
+
+
+  constructor() {
+    this.contactosModel = new ContactosModel();
+    this.add = this.add.bind(this);
+  }
+
   async add(req, res) {
+
     let transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 465, // Use port 465 for SSL
@@ -53,16 +65,9 @@ class ContactosController {
         console.log("Email sent successfully:", info.response);
       }
     });
+  
+  
 
-  }
-
-
-  constructor() {
-    this.contactosModel = new ContactosModel();
-    this.add = this.add.bind(this);
-  }
-
-  async add(req, res) {
     // Validar los datos del formulario
 
     const { email, name, mensaje } = req.body;
