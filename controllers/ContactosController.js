@@ -52,7 +52,7 @@ class ContactosController {
     const sendTemplate = {
       from: process.env.USER, //correo de ejemplo
       to: [process.env.EMAILRECP1],
-      subject: "Probando  el envio",
+      subject: "Registro de la pagina",
       text: `Nombre: ${req.body.name} 
       | Email: ${req.body.email} | mensaje: ${req.body.mensaje}
       | Date: ${new Date()}`
