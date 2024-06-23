@@ -15,6 +15,16 @@
  width: auto;
 }
 
+.Contac{
+  background-color: #878d83e3;
+  padding: 0px 50px 80px 50px;
+  text-align: center ;
+  height: 2;
+  overflow:hidden;
+  height: auto;
+  width: auto;
+}
+
 
 .Centro{
 
@@ -67,3 +77,4 @@ li , ul {
  min-width: 10px;
 
 }
+
